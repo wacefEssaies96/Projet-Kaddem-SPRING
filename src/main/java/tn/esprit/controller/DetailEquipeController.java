@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.persistance.entities.DetailEquipe;
-import tn.esprit.persistance.entities.Equipe;
 import tn.esprit.service.interfaces.DetailEquipeService;
 
 @CrossOrigin(origins = "http://localhost:4200")
