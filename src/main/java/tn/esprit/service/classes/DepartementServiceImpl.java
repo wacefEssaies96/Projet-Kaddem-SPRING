@@ -2,6 +2,7 @@ package tn.esprit.service.classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceException;
@@ -70,6 +71,17 @@ public class DepartementServiceImpl implements DepartementService {
 		}
 		return d;
 	}
+
+	@Override
+    public void removeDepartement(Integer idDepartement) {
+    	try {
+    		dr.deleteById(idDepartement);
+     		log.info("Departement supprimé ");
+    	}catch(NoSuchElementException e) {
+    		log.info("Echec de supprimer un Departement  :"+e.getMessage());
+        }
+        
+    }
 
 	@Override
 	public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite) {

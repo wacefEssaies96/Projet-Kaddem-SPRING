@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,11 @@ public class DepartementController {
 	public Departement modifierDepartement(@RequestBody Departement d) {
 		return this.ds.updateDepartement(d);
 	}
+	
+	@DeleteMapping("/supprimer/{id}")
+    public void supprimerDepartementById(@PathVariable("id") int id) {
+    	ds.removeDepartement(id);
+    }
 	
 	@GetMapping("/get-departements-universite/{idUniversite}")
 	public List<Departement> retrieveDepartementsByUniversite(@PathVariable("idUniversite")int idUniversite) {

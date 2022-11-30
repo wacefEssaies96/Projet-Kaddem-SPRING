@@ -18,7 +18,7 @@ public class LoggingAspect {
 	@Before("execution(* tn.esprit.service.classes.*.*(..))")
 	public void logMethodEntry(JoinPoint joinPoint) {
 		String name = joinPoint.getSignature().getName();
-		log.info("In method : " + name);
+		log.info("Before method : " + name);
 	}
 	@Around("execution(* tn.esprit.service.classes.*.*(..))")
     public Object profile(ProceedingJoinPoint pjp) throws Throwable {

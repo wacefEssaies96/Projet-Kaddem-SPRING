@@ -43,7 +43,7 @@ public class Etudiant implements Serializable {
 	private String nomE;
 	
 	@Temporal(TemporalType.DATE)
-	private Date dateDebut;
+	private Date dateNaissance;
 	
 	@Enumerated(EnumType.STRING)
 	private Option op;
@@ -62,8 +62,8 @@ public class Etudiant implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Etudiant [idEtudiant=" + idEtudiant + ", prenomE=" + prenomE + ", nomE=" + nomE + ", dateDebut="
-				+ dateDebut + ", op=" + op + "]";
+		return "Etudiant [idEtudiant=" + idEtudiant + ", prenomE=" + prenomE + ", nomE=" + nomE + ", dateNaissance="
+				+ dateNaissance + ", op=" + op + "]";
 	}
 
 }

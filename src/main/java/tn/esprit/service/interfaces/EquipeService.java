@@ -9,5 +9,6 @@ public interface EquipeService {
 	public Equipe updateEquipe(Equipe e);
 	public Equipe addEquipe(Equipe e);
 	public Equipe retrieveEquipe(Integer idEquipe);
+	public void removeEquipe(Integer idEquipe);
 	public void faireEvoluerEquipes();
 }

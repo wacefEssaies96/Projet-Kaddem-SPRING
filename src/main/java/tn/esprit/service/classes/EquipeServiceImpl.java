@@ -2,6 +2,7 @@ package tn.esprit.service.classes;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceException;
@@ -68,6 +69,17 @@ public class EquipeServiceImpl implements EquipeService {
 		}
 		return e;
 	}
+	
+	 @Override
+	    public void removeEquipe(Integer idEquipe) {
+	    	try {
+	    		er.deleteById(idEquipe);
+	     		log.info("Equipe supprimé ");
+	    	}catch(NoSuchElementException e) {
+	    		log.info("Echec de supprimer un Equipe  :"+e.getMessage());
+	        }
+	        
+	    }
 
 	@Scheduled(cron = "0 30 14 * * *" )
 	@Override

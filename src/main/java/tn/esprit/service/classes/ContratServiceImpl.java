@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceException;
@@ -73,6 +74,17 @@ public class ContratServiceImpl implements ContratService {
 		}
 		return c;
 	}
+	
+	@Override
+    public void removeContrat(Integer idContrat) {
+    	try {
+    		cr.deleteById(idContrat);
+     		log.info("Contrat supprimé ");
+    	}catch(NoSuchElementException e) {
+    		log.info("Echec de supprimer un Contrat  :"+e.getMessage());
+        }
+        
+    }
 
 	@Override
 	public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
