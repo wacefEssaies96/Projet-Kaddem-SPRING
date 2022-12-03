@@ -54,6 +54,10 @@ public class Universite implements Serializable {
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Departement> departements;
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<Cours> cours;
 
 	@Override
 	public String toString() {

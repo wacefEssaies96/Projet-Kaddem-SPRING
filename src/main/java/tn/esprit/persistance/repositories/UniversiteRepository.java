@@ -18,6 +18,11 @@ public interface UniversiteRepository extends JpaRepository<Universite, Integer>
 	@Query(value="insert into universite_departements values(:idUniv, :idDep)", nativeQuery=true)
 	public void updateAssignUniversityToDepartement (@Param("idUniv") Integer universiteId,@Param("idDep") Integer departementId) ;
 
+	@Transactional
+	@Modifying
+	@Query(value="insert into universite_cours values(:idUniv, :idCour)", nativeQuery=true)
+	public void updateAssignUniversityToCours (@Param("idUniv") Integer universiteId,@Param("idCour") Integer coursId) ;
+	
 	public Universite findBynomUnivIgnoreCase(String name);
 	
 	/*@Query("select u from Universite orderBy dateCreationUniv desc")

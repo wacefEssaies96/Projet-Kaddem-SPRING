@@ -55,6 +55,11 @@ public class UniversiteController {
 		univerServ.assignUniversiteToDepartementjpql(universiteId, departementId);
 	}
 	
+	@GetMapping("/assignUnivCourJpql/{idUniv}/{idCour}")
+	public void AffectUniverToCoursjpql(@PathVariable("idUniv") int universiteId,@PathVariable("idCour") int coursId) {
+		univerServ.assignUniversiteToCoursjpql(universiteId, coursId);
+	}
+	
 	@DeleteMapping("/deleteUniversite/{idUniv}")
 	public void DeleteUniver(@PathVariable("idUniv") int universiteId) {
 		univerServ.deleteUniversite(universiteId);

@@ -14,6 +14,8 @@ public interface UniversiteService {
 	//public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement);
 	public void assignUniversiteToDepartementjpql (Integer idUniversite, Integer idDepartement);
 	
+	public void assignUniversiteToCoursjpql (Integer idUniversite, Integer idCours);
+	
 	public Universite getUniversiteByName(String name);
 	//public List<Universite> getUniversitesByDateDesc();
 	public List<Universite> getUniversiteByType(TypeUniversite type);
