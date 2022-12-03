@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
 import tn.esprit.persistance.entities.TypeUniversite;
 import tn.esprit.persistance.entities.Universite;
 import tn.esprit.persistance.repositories.DepartementRepository;
@@ -13,7 +12,6 @@ import tn.esprit.persistance.repositories.UniversiteRepository;
 import tn.esprit.service.interfaces.UniversiteService;
 
 @Service
-@Slf4j
 public class UniversiteServiceImpl implements UniversiteService {
 	
 	//injection des dépendences de la couche repository

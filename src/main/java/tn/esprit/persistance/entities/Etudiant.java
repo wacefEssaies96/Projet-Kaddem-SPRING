@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -59,6 +60,9 @@ public class Etudiant implements Serializable {
 	@JsonIgnore
 	@ManyToMany(mappedBy="etudiants")
 	private Set<Equipe> equipe;
+	
+	@OneToOne
+	private User user;
 
 	@Override
 	public String toString() {
