@@ -24,27 +24,27 @@ public class CoursController {
 	@Autowired
 	CoursService courServ;
 	
-	@GetMapping("/displayAllCours")
+	@GetMapping("/display")
 	public List<Cours> displayAllCours () {
 		return courServ.retrieveAllCours();
 	}
 	
-	@GetMapping("/displayCours/{idCour}")
+	@GetMapping("/display/cours/{idCour}")
 	public Cours displayCours (@PathVariable("idCour") int idCour) {
 		return courServ.retrieveCours(idCour);
 	}
 	
-	@PostMapping("/addCours")
+	@PostMapping("/ajouter")
 	public Cours addCours(@RequestBody Cours c) {
 		return courServ.addCours(c);
 	}
 	
-	@PutMapping("/updateCours")
+	@PutMapping("/modifier")
 	public Cours updateCours (@RequestBody Cours c) {
 		return  courServ.updateCours(c);
 	}
 	
-	@DeleteMapping("/deleteCours/{idCours}")
+	@DeleteMapping("/supprimer/{idCours}")
 	public void DeleteCours(@PathVariable("idCours") int coursId) {
 		courServ.removeCours(coursId);
 	}

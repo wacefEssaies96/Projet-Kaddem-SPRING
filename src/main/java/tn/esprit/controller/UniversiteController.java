@@ -25,22 +25,22 @@ public class UniversiteController {
 	@Autowired
 	UniversiteService univerServ;
 	
-	@GetMapping("/displayUniversites")
+	@GetMapping("/display")
 	public List<Universite> displayAllUniversites () {
 		return univerServ.retrieveAllUniversites();
 	}
 	
-	@GetMapping("/displayUniversite/{id}")
+	@GetMapping("/display/universite/{id}")
 	public Universite displayUniversite (@PathVariable("id") int id) {
 		return univerServ.retrieveUniversite(id);
 	}
 	
-	@PostMapping("/addUniversite")
+	@PostMapping("/ajouter")
 	public Universite addUniversite(@RequestBody Universite u) {
 		return univerServ.addUniversite(u);
 	}
 	
-	@PutMapping("/updateUniversite")
+	@PutMapping("/modifier")
 	public Universite updateUniversite (@RequestBody Universite u) {
 		return  univerServ.updateUniversite(u);
 	}
@@ -60,7 +60,7 @@ public class UniversiteController {
 		univerServ.assignUniversiteToCoursjpql(universiteId, coursId);
 	}
 	
-	@DeleteMapping("/deleteUniversite/{idUniv}")
+	@DeleteMapping("/supprimer/{idUniv}")
 	public void DeleteUniver(@PathVariable("idUniv") int universiteId) {
 		univerServ.deleteUniversite(universiteId);
 	}

@@ -28,7 +28,7 @@ public class StageController {
 		return this.ss.retrieveAllStages();
 	}
 	
-	@GetMapping("/display/Stage/{id}")
+	@GetMapping("/display/stage/{id}")
 	public Stage getStage(@PathVariable("id") int id) {
 		return this.ss.retrieveStage(id);
 	}
