@@ -59,6 +59,10 @@ public class Etudiant implements Serializable {
 	private Set<Contrat> contrats;
 	
 	@JsonIgnore
+	@OneToMany(mappedBy="etudiant")
+	private Set<Stage> stages;
+	
+	@JsonIgnore
 	@ManyToMany(mappedBy="etudiants")
 	private Set<Equipe> equipe;
 	
