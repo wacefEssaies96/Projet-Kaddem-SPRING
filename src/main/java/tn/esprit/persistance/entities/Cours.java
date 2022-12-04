@@ -35,4 +35,11 @@ public class Cours implements Serializable{
 	
 	@Enumerated(EnumType.STRING)
 	private TypeCours typeCour;
+
+	@Override
+	public String toString() {
+		return "Cours [idCour=" + idCour + ", codeCour=" + codeCour + ", intituleCour=" + intituleCour + ", typeCour="
+				+ typeCour + "]";
+	}
+	
 }

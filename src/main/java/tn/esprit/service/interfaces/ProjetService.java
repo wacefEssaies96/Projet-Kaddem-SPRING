@@ -1,9 +1,7 @@
 package tn.esprit.service.interfaces;
 
-import java.util.Date;
 import java.util.List;
 
-import tn.esprit.persistance.entities.Matiere;
 import tn.esprit.persistance.entities.Projet;
 
 public interface ProjetService {

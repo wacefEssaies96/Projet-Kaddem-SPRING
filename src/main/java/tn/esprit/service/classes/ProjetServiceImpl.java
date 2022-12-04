@@ -1,25 +1,16 @@
 package tn.esprit.service.classes;
 
-import java.util.Date;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
 import tn.esprit.persistance.entities.Projet;
-import tn.esprit.persistance.entities.TypeUniversite;
-import tn.esprit.persistance.entities.Universite;
-import tn.esprit.persistance.repositories.DepartementRepository;
 import tn.esprit.persistance.repositories.EquipeRepository;
 import tn.esprit.persistance.repositories.ProjetRepository;
-import tn.esprit.persistance.repositories.UniversiteRepository;
 import tn.esprit.service.interfaces.ProjetService;
-import tn.esprit.service.interfaces.UniversiteService;
 
 @Service
-@Slf4j
 public class ProjetServiceImpl implements ProjetService {
 	
 	//injection des dépendences de la couche repository
