@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import tn.esprit.persistance.entities.Contrat;
 import tn.esprit.persistance.entities.Stage;
 import tn.esprit.persistance.repositories.StageRepository;
-import tn.esprit.service.interfaces.ContratService;
 import tn.esprit.service.interfaces.StageService;
 
 @Service

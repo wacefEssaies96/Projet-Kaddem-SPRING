@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.service.classes.MyUserDetailsService;
+import tn.esprit.service.classes.UserService;
 import tn.esprit.util.TokenUtil;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,6 +30,8 @@ public class LoginController {
 	@Autowired
 	private MyUserDetailsService userService;
 	@Autowired
+	private UserService us;
+	@Autowired
 	private AuthenticationManager authenticationManager;
  
 	@RequestMapping(value = "/authenticate/{username}/{password}", method = { RequestMethod.GET })
@@ -40,15 +43,15 @@ public class LoginController {
 			UserDetails userDetails = this.userService.loadUserByUsername(username);
 			log.info(TokenUtil.createToken(userDetails).toString());
 			
-			return TokenUtil.createToken(userDetails);
+			return this.us.findUserByUserName(username).getRole();
  
 		} catch (BadCredentialsException bce) {
 			log.error(bce.getMessage());
-			return "Bad credentials !";
+			return "null";
  
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return "Error !";
+			return "null";
 		}
  
 	}
