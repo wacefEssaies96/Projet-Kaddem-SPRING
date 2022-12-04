@@ -38,10 +38,11 @@ public class Etudiant implements Serializable {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="idEtudiant")
 	private Integer idEtudiant; 
-	
-	private String prenomE;
-	
 	private String nomE;
+	private String prenomE;
+	private String sexe;
+	private String password;
+	private String email;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
@@ -66,8 +67,8 @@ public class Etudiant implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Etudiant [idEtudiant=" + idEtudiant + ", prenomE=" + prenomE + ", nomE=" + nomE + ", dateNaissance="
-				+ dateNaissance + ", op=" + op + "]";
+		return "Etudiant [idEtudiant=" + idEtudiant + ", nomE=" + nomE + ", prenomE=" + prenomE + ", sexe=" + sexe
+				+ ", password=" + password + ", email=" + email + ", dateNaissance=" + dateNaissance + "]";
 	}
-
+	
 }

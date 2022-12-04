@@ -36,7 +36,7 @@ public class EtudiantController {
 	
 	@PostMapping("/ajouter")
 	public Etudiant addStudent(@RequestBody Etudiant e) {
-		return this.etudServ.ajouterEtudiant(e);
+		return this.etudServ.addEtudiantAndUser(e);
 	}
 	
 	@DeleteMapping("/supprimer/{id}")

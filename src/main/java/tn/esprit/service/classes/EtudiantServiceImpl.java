@@ -7,13 +7,16 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.persistance.entities.Departement;
 import tn.esprit.persistance.entities.Etudiant;
+import tn.esprit.persistance.entities.User;
 import tn.esprit.persistance.repositories.DepartementRepository;
 import tn.esprit.persistance.repositories.EtudiantRepository;
+import tn.esprit.persistance.repositories.UserRepository;
 import tn.esprit.service.interfaces.EtudiantService;
 
 @Service
@@ -25,6 +28,10 @@ public class EtudiantServiceImpl implements EtudiantService {
 	
 	@Autowired
 	DepartementRepository departRep;
+	
+	@Autowired
+	private UserRepository userRep;
+	private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
 	@Override
 	public Etudiant afficherEtudiant(int id) {
@@ -119,6 +126,20 @@ public class EtudiantServiceImpl implements EtudiantService {
 			log.error(e.getMessage());
 		}
 		return list;
+	}
+
+	@Override
+	public Etudiant addEtudiantAndUser(Etudiant e) {
+		User u = new User();
+		u.setEmail(e.getEmail());
+		u.setUserName(e.getPrenomE());
+		u.setRole("ETUDIANT");
+		u.setPassword(bCryptPasswordEncoder.encode(e.getPassword()));
+		u.setActive(true);
+		User uu = this.userRep.save(u);
+		e.setUser(uu);
+		return this.etudRep.save(e);
+
 	}
 
 	

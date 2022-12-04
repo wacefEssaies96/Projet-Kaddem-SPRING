@@ -34,9 +34,7 @@ public class User implements Serializable {
 	private String email;
 	private String password;
 	private boolean active;
-
-	@Enumerated(EnumType.STRING)
-	private RoleName role;
+	private String role;
 	
 	@JsonIgnore
 	@OneToOne(mappedBy = "user")
