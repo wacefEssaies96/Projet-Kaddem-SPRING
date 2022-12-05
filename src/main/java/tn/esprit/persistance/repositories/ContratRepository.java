@@ -31,4 +31,7 @@ public interface ContratRepository extends JpaRepository<Contrat, Integer> {
 	@Modifying
 	@Query("UPDATE Contrat c SET c.archive = 1 WHERE c.dateFinContrat < :currentDate")
 	public int updateContratArchive(@Param("currentDate") Date currentDate);
+	
+	@Query("SELECT COUNT(u.specialite), u.specialite FROM Contrat u GROUP BY u.specialite")
+	public List<Object[]> getNbrSpecialite();
 }

@@ -139,8 +139,21 @@ public class EtudiantServiceImpl implements EtudiantService {
 		User uu = this.userRep.save(u);
 		e.setUser(uu);
 		return this.etudRep.save(e);
-
 	}
 
+	@Override
+	public List<Object[]> countBySexe() {
+		// TODO Auto-generated method stub
+		return this.etudRep.getNbrSexe();
+	}
 	
+	@Override
+	public Integer incrementNbrLike(Etudiant e) {
+		int inc = e.getNbrLike();
+		inc++;
+		e.setNbrLike(inc);
+		etudRep.save(e);
+		return inc;
+	}
+
 }

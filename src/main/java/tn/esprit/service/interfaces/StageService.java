@@ -10,6 +10,7 @@ public interface StageService {
 	public Stage addStage(Stage s);
 	public Stage retrieveStage(Integer idStage);
 	public void removeStage(Integer idStage);
-	
+	public List<Object[]> countByType();
+	public Integer incrementNbrLike(Stage s);
 
 }

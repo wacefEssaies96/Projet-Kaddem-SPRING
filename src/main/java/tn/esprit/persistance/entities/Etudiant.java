@@ -43,6 +43,7 @@ public class Etudiant implements Serializable {
 	private String sexe;
 	private String password;
 	private String email;
+	private int nbrLike;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;

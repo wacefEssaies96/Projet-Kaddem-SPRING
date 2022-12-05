@@ -12,5 +12,6 @@ public interface ProjetService {
 	void deleteprojet( Integer idprojet);
 	//public List<Projet> getProjetByMatiere(Matiere matiere);
 	public void assignProjetToEquipe (Integer idEquipe, Integer idprojet);
+	public Integer incrementNbrLike(Projet p);
 
 }

@@ -19,4 +19,8 @@ public interface UniversiteService {
 	public Universite getUniversiteByName(String name);
 	//public List<Universite> getUniversitesByDateDesc();
 	public List<Universite> getUniversiteByType(TypeUniversite type);
+	
+	public List<Object[]> countByType();
+	public Integer incrementNbrLike(Universite u);
+
 }

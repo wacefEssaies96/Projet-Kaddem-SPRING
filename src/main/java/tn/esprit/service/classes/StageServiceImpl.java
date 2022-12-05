@@ -74,4 +74,18 @@ public class StageServiceImpl implements StageService {
     		log.info("Echec de supprimer un Stage  :"+e.getMessage());
         }
 	}
+
+	@Override
+	public List<Object[]> countByType() {
+		// TODO Auto-generated method stub
+		return this.sr.getNbrTypeStage();
+	}
+	@Override
+	public Integer incrementNbrLike(Stage s) {
+		int inc = s.getNbrLike();
+		inc++;
+		s.setNbrLike(inc);
+		sr.save(s);
+		return inc;
+	}
 }

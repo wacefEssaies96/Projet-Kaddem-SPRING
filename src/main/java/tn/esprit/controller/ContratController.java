@@ -70,5 +70,15 @@ public class ContratController {
 			@PathParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
 		return this.cs.nbContratsValides(startDate, endDate);
 	}
+	
+	@GetMapping("/count-nbr-specialite")
+	public List<Object[]> countNbrSpecialite() {
+		 return this.cs.countBySpecialite();
+	}
+	
+	@PutMapping("/incrementLikes")
+	public Integer invcrementLikes(@RequestBody Contrat c) {
+		return this.cs.incrementNbrLike(c);
+	}
 
 }

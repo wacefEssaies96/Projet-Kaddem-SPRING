@@ -1,5 +1,7 @@
 package tn.esprit.persistance.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -28,5 +30,8 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
 	@Modifying
 	@Query(value = "INSERT INTO equipe_etudiants VALUES (:idE, :idEt)", nativeQuery = true)
 	public void assignEquipeToEtudiant(@Param("idE") int idE, @Param("idEt") int idEt);
+	
+	@Query("SELECT COUNT(u.sexe), u.sexe FROM Etudiant u GROUP BY u.sexe")
+	public List<Object[]> getNbrSexe();
 
 }

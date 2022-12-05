@@ -11,4 +11,7 @@ public interface EquipeService {
 	public Equipe retrieveEquipe(Integer idEquipe);
 	public void removeEquipe(Integer idEquipe);
 	public void faireEvoluerEquipes();
+	public List<Object[]> countByNiveau();
+	public Integer incrementNbrLike(Equipe e);
+
 }

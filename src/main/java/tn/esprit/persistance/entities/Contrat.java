@@ -51,6 +51,8 @@ public class Contrat implements Serializable {
 	
 	private int montantContrat;
 	
+	private int nbrLike;
+	
 	@JsonIgnore
 	@ManyToOne
 	private Etudiant etudiant;

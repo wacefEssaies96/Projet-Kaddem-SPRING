@@ -61,12 +61,15 @@ public class ProjetController {
 		proServ.deleteprojet(ProjetId);
 	}
 	
-	
-	
 	/*@GetMapping("/displayUniversitesOrderByDate")
 	public List<Universite> displayAllUniversitesOrderByDate () {
 		return univerServ.getUniversitesByDateDesc();
 	}*/
+	
+	@PutMapping("/incrementLikes")
+	public Integer invcrementLikes(@RequestBody Projet p) {
+		return this.proServ.incrementNbrLike(p);
+	}
 
 }
 

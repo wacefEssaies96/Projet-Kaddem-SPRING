@@ -99,4 +99,19 @@ public class EquipeServiceImpl implements EquipeService {
 		}
 	}
 
+	@Override
+	public List<Object[]> countByNiveau() {
+		// TODO Auto-generated method stub
+		return this.er.getNbrNiveau();
+	}
+	
+	@Override
+	public Integer incrementNbrLike(Equipe e) {
+		int inc = e.getNbrLike();
+		inc++;
+		e.setNbrLike(inc);
+		er.save(e);
+		return inc;
+	}
+
 }

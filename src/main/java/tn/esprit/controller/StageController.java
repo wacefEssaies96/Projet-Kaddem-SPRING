@@ -45,6 +45,16 @@ public class StageController {
 	
 	@DeleteMapping("/supprimer/{id}")
     public void supprimerStageById(@PathVariable("id") int id) {
-    	ss.removeStage(id);
+    	this.ss.removeStage(id);
     }
+	
+	@GetMapping("/count-nbr-type")
+	public List<Object[]> countNbrType() {
+		 return this.ss.countByType();
+	}
+	
+	@PutMapping("/incrementLikes")
+	public Integer invcrementLikes(@RequestBody Stage s) {
+		return this.ss.incrementNbrLike(s);
+	}
 }

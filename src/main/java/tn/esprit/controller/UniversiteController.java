@@ -75,9 +75,19 @@ public class UniversiteController {
 		return univerServ.getUniversiteByType(type);
 	}
 	
+	@GetMapping("/count-nbr-typeuniv")
+	public List<Object[]> countNbrTypeUniv() {
+		 return this.univerServ.countByType();
+	}
+	
 	/*@GetMapping("/displayUniversitesOrderByDate")
 	public List<Universite> displayAllUniversitesOrderByDate () {
 		return univerServ.getUniversitesByDateDesc();
 	}*/
+	
+	@PutMapping("/incrementLikes")
+	public Integer invcrementLikes(@RequestBody Universite u) {
+		return this.univerServ.incrementNbrLike(u);
+	}
 
 }

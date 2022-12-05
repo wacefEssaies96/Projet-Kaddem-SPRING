@@ -37,6 +37,7 @@ public class Stage implements Serializable {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="idStage")
 	private int idStage;
+	private int nbrLike;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateDebutStage;

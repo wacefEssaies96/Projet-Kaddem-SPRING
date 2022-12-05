@@ -49,4 +49,14 @@ public class EquipeController {
     	es.removeEquipe(id);
     }
 	
+	@GetMapping("/count-nbr-niveau")
+	public List<Object[]> countNbrNiveau() {
+		 return this.es.countByNiveau();
+	}
+	
+	@PutMapping("/incrementLikes")
+	public Integer invcrementLikes(@RequestBody Equipe e) {
+		return this.es.incrementNbrLike(e);
+	}
+	
 }

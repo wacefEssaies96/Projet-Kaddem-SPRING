@@ -41,6 +41,7 @@ public class Projet  implements Serializable{
 	
 	private String nomprojet;
 	private String description;
+	private int nbrLike;
 		
 	@Temporal(TemporalType.DATE)
 	private Date datelimiteProjet;

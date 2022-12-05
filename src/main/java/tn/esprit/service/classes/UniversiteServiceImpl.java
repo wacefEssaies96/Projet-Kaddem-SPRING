@@ -78,9 +78,22 @@ public class UniversiteServiceImpl implements UniversiteService {
 			univRepo.updateAssignUniversityToCours(idUniversite, idCours);
 		}
 
+		@Override
+		public List<Object[]> countByType() {
+			return this.univRepo.getNbrTypeUniv();
+		}
+
 		/*@Override
 		public List<Universite> getUniversitesByDateDesc() {
 			return univRepo.;
 		}*/
+		@Override
+		public Integer incrementNbrLike(Universite u) {
+			int inc = u.getNbrLike();
+			inc++;
+			u.setNbrLike(inc);
+			univRepo.save(u);
+			return inc;
+		}
 
 }

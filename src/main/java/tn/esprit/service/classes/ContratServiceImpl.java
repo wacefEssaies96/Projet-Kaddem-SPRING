@@ -155,4 +155,19 @@ public class ContratServiceImpl implements ContratService {
 		return result;
 	}
 
+	@Override
+	public List<Object[]> countBySpecialite() {
+		// TODO Auto-generated method stub
+		return this.cr.getNbrSpecialite();
+	}
+	
+	@Override
+	public Integer incrementNbrLike(Contrat c) {
+		int inc = c.getNbrLike();
+		inc++;
+		c.setNbrLike(inc);
+		cr.save(c);
+		return inc;
+	}
+
 }

@@ -20,5 +20,8 @@ public interface EquipeRepository extends JpaRepository<Equipe, Integer> {
 			+ " GROUP BY e"
 			+ " HAVING COUNT(et) > 2")
 	public List<Equipe> retrieveEquipe(@Param("date") Date date);
+	
+	@Query("SELECT COUNT(u.niveau), u.niveau FROM Equipe u GROUP BY u.niveau")
+	List<Object[]> getNbrNiveau();
 
 }

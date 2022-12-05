@@ -44,6 +44,7 @@ public class Universite implements Serializable {
 	private String nomUniv;
 	private String descriptionUniv;
 	private String imgUniv;
+	private int nbrLike;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateCreationUniv;

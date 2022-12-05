@@ -39,6 +39,8 @@ public class Equipe implements Serializable {
 	
 	private String nomEquipe;
 	
+	private int nbrLike;
+	
 	@Enumerated(EnumType.STRING)
 	private Niveau niveau;
 	

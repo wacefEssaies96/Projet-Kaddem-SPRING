@@ -66,4 +66,14 @@ public class EtudiantController {
 		return this.etudServ.addAndAssignEtudiantToEquipeAndContract(e, idContrat, idEquipe);
 	}
 	
+	@GetMapping("/count-nbr-sexe")
+	public List<Object[]> countNbrSexe() {
+		 return this.etudServ.countBySexe();
+	}
+	
+	@PutMapping("/incrementLikes")
+	public Integer invcrementLikes(@RequestBody Etudiant e) {
+		return this.etudServ.incrementNbrLike(e);
+	}
+	
 }

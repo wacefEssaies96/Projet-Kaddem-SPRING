@@ -25,9 +25,11 @@ public interface UniversiteRepository extends JpaRepository<Universite, Integer>
 	
 	public Universite findBynomUnivIgnoreCase(String name);
 	
-	/*@Query("select u from Universite orderBy dateCreationUniv desc")
-	public List<Universite> retriveAllUniversitiesByDateDesc();*/
-	
 	//@Query("FROM Universite WHERE typeuniv= :type")
 	public List<Universite> findBytypeuniv(TypeUniversite type);
+	
+	
+	@Query("SELECT COUNT(u.typeuniv), u.typeuniv FROM Universite u GROUP BY u.typeuniv")
+	public List<Object[]> getNbrTypeUniv();
+	
 }
