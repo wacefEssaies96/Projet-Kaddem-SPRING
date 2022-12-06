@@ -5,11 +5,9 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,36 +23,32 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Departement")
-public class Departement implements Serializable{
-	/**
-	 * 
-	 */
+@Table(name = "DetailDepartement")
+public class DetailDepartement implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idDepartement")
-	private int idDepartement;
-	
-	private String nomDepart;
-	
-	
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER ,mappedBy="departement")
-	private Set<Etudiant> etudiants;
 
 	
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name="idDetailDepartement")
+	private int idDetailDepartement;
+	private int nombreClasses;
+	private int nombreEtages;
 	
+
 	@JsonIgnore
-	@OneToOne
-	private DetailDepartement detailDepartement;
-	
-	
-	
+	@OneToOne(mappedBy="detailDepartement")
+	private Departement departement;
 	
 	@Override
 	public String toString() {
-		return "Departement [idDepartement=" + idDepartement + ", nomDepart=" + nomDepart + "]";
+		return "DetailDepartement [idDetailDepartement=" + idDetailDepartement + ", nombreClasses=" + nombreClasses
+				+ ", nombreEtages=" + nombreEtages + "]";
 	}
+
+	
+	
+	
+	
 
 }
