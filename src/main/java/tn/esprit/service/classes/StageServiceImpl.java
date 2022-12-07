@@ -1,5 +1,6 @@
 package tn.esprit.service.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -10,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import tn.esprit.persistance.entities.Etudiant;
 import tn.esprit.persistance.entities.Stage;
+import tn.esprit.persistance.repositories.EtudiantRepository;
 import tn.esprit.persistance.repositories.StageRepository;
 import tn.esprit.service.interfaces.StageService;
 
@@ -19,6 +22,9 @@ import tn.esprit.service.interfaces.StageService;
 public class StageServiceImpl implements StageService {
 	@Autowired
 	private StageRepository sr;
+
+	@Autowired
+	EtudiantRepository etudRep;
 
 	@Override
 	public List<Stage> retrieveAllStages() {
@@ -87,5 +93,26 @@ public class StageServiceImpl implements StageService {
 		s.setNbrLike(inc);
 		sr.save(s);
 		return inc;
+	}
+
+	@Override
+	public Stage affectStageToEtudiant(Stage s, int idEtudiant) {
+		try {
+				Etudiant e = etudRep.getById(idEtudiant);
+				s.setEtudiant(e);
+				sr.save(s);
+				log.info("L'etudiant "+e.getIdEtudiant()+" est affecté au stage "+s.getIdStage());
+		
+		} catch (Exception e) {
+			log.error(e.getMessage());		
+		}
+		return s;
+	}
+
+	@Override
+	public List<Stage> retrieveStagesOfStudent(int idEtudiant) {
+		Etudiant e = etudRep.getById(idEtudiant);
+		ArrayList<Stage> l = new ArrayList<Stage>(e.getStages());
+		return l;
 	}
 }

@@ -1,6 +1,5 @@
 package tn.esprit.service.classes;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -11,12 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import tn.esprit.persistance.entities.Departement;
 import tn.esprit.persistance.entities.DetailDepartement;
-import tn.esprit.persistance.entities.Universite;
-import tn.esprit.persistance.repositories.DepartementRepository;
 import tn.esprit.persistance.repositories.DetailDepartementRepository;
-import tn.esprit.persistance.repositories.UniversiteRepository;
 import tn.esprit.service.interfaces.DetailDepartementService;
 
 @Service

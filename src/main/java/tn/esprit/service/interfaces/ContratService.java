@@ -17,5 +17,6 @@ public interface ContratService {
 	public Integer nbContratsValides(Date startDate, Date endDate);
 	public List<Object[]> countBySpecialite();
 	public Integer incrementNbrLike(Contrat c);
+	public List<Contrat> retrieveContratsOfStudent(int idEtudiant);
 	
 }

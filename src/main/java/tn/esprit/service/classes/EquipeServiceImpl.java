@@ -1,5 +1,6 @@
 package tn.esprit.service.classes;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -13,8 +14,10 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.persistance.entities.Equipe;
+import tn.esprit.persistance.entities.Etudiant;
 import tn.esprit.persistance.entities.Niveau;
 import tn.esprit.persistance.repositories.EquipeRepository;
+import tn.esprit.persistance.repositories.EtudiantRepository;
 import tn.esprit.service.interfaces.EquipeService;
 
 @Service
@@ -23,6 +26,9 @@ public class EquipeServiceImpl implements EquipeService {
 	
 	@Autowired
 	private EquipeRepository er;
+
+	@Autowired
+	EtudiantRepository etudRep;
 	
 	@Override
 	public List<Equipe> retrieveAllEquipes() {
@@ -112,6 +118,13 @@ public class EquipeServiceImpl implements EquipeService {
 		e.setNbrLike(inc);
 		er.save(e);
 		return inc;
+	}
+
+	@Override
+	public List<Equipe> retrieveEquipesOfStudent(int idEtudiant) {
+		Etudiant e = etudRep.getById(idEtudiant);
+		ArrayList<Equipe> l = new ArrayList<Equipe>(e.getEquipe());
+		return l;
 	}
 
 }

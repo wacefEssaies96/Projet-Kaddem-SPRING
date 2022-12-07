@@ -13,5 +13,6 @@ public interface EquipeService {
 	public void faireEvoluerEquipes();
 	public List<Object[]> countByNiveau();
 	public Integer incrementNbrLike(Equipe e);
+	public List<Equipe> retrieveEquipesOfStudent(int idEtudiant);
 
 }

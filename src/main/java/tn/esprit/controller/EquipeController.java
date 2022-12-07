@@ -58,5 +58,9 @@ public class EquipeController {
 	public Integer invcrementLikes(@RequestBody Equipe e) {
 		return this.es.incrementNbrLike(e);
 	}
-	
+
+	@GetMapping("/equipes-of-student/{id}")
+	public List<Equipe> retrieveEquipesOfStudent(@PathVariable("id")int idEtudiant)  {
+		return this.es.retrieveEquipesOfStudent(idEtudiant);
+	}
 }

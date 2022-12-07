@@ -81,4 +81,9 @@ public class ContratController {
 		return this.cs.incrementNbrLike(c);
 	}
 
+	@GetMapping("/contrats-of-student/{id}")
+	public List<Contrat> retrieveContratsOfStudent(@PathVariable("id")int idEtudiant)  {
+		return this.cs.retrieveContratsOfStudent(idEtudiant);
+	}
+
 }

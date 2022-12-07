@@ -2,7 +2,6 @@ package tn.esprit.service.interfaces;
 
 import java.util.List;
 
-import tn.esprit.persistance.entities.Departement;
 import tn.esprit.persistance.entities.DetailDepartement;
 
 public interface DetailDepartementService {

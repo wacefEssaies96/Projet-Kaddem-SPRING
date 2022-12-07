@@ -2,6 +2,7 @@ package tn.esprit.service.classes;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -168,6 +169,13 @@ public class ContratServiceImpl implements ContratService {
 		c.setNbrLike(inc);
 		cr.save(c);
 		return inc;
+	}
+
+	@Override
+	public List<Contrat> retrieveContratsOfStudent(int idEtudiant) {
+		Etudiant e = er.getById(idEtudiant);
+		ArrayList<Contrat> l = new ArrayList<Contrat>(e.getContrats());
+		return l;
 	}
 
 }

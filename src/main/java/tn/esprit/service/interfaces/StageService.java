@@ -12,5 +12,7 @@ public interface StageService {
 	public void removeStage(Integer idStage);
 	public List<Object[]> countByType();
 	public Integer incrementNbrLike(Stage s);
+	public Stage affectStageToEtudiant(Stage s, int idEtudiant);
+	public List<Stage> retrieveStagesOfStudent(int idEtudiant);
 
 }
