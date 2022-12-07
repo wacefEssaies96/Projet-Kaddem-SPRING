@@ -10,9 +10,12 @@ public interface EquipeService {
 	public Equipe addEquipe(Equipe e);
 	public Equipe retrieveEquipe(Integer idEquipe);
 	public void removeEquipe(Integer idEquipe);
-	public void faireEvoluerEquipes();
+	
 	public List<Object[]> countByNiveau();
 	public Integer incrementNbrLike(Equipe e);
 	public List<Equipe> retrieveEquipesOfStudent(int idEtudiant);
+	public List<Equipe> getEquipesOfProjet(int idprojet);
+
+	public void faireEvoluerEquipes();
 
 }

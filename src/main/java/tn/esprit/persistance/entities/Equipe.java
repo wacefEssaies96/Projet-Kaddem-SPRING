@@ -52,6 +52,10 @@ public class Equipe implements Serializable {
 	@ManyToMany
 	private Set<Etudiant> etudiants;
 
+	@JsonIgnore
+	@ManyToMany(mappedBy="equipes")
+	private Set<Projet> projets;
+
 	@Override
 	public String toString() {
 		return "Equipe [idEtudiant=" + idEquipe + ", nomEquipe=" + nomEquipe + ", niveau=" + niveau + "]";

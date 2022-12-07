@@ -16,8 +16,10 @@ import lombok.extern.slf4j.Slf4j;
 import tn.esprit.persistance.entities.Equipe;
 import tn.esprit.persistance.entities.Etudiant;
 import tn.esprit.persistance.entities.Niveau;
+import tn.esprit.persistance.entities.Projet;
 import tn.esprit.persistance.repositories.EquipeRepository;
 import tn.esprit.persistance.repositories.EtudiantRepository;
+import tn.esprit.persistance.repositories.ProjetRepository;
 import tn.esprit.service.interfaces.EquipeService;
 
 @Service
@@ -29,6 +31,8 @@ public class EquipeServiceImpl implements EquipeService {
 
 	@Autowired
 	EtudiantRepository etudRep;
+	@Autowired
+	ProjetRepository pRep;
 	
 	@Override
 	public List<Equipe> retrieveAllEquipes() {
@@ -124,6 +128,13 @@ public class EquipeServiceImpl implements EquipeService {
 	public List<Equipe> retrieveEquipesOfStudent(int idEtudiant) {
 		Etudiant e = etudRep.getById(idEtudiant);
 		ArrayList<Equipe> l = new ArrayList<Equipe>(e.getEquipe());
+		return l;
+	}
+
+	@Override
+	public List<Equipe> getEquipesOfProjet(int idprojet) {
+		Projet p = pRep.getById(idprojet);
+		ArrayList<Equipe> l = new ArrayList<Equipe>(p.getEquipes());
 		return l;
 	}
 

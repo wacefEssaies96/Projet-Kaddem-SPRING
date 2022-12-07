@@ -10,8 +10,10 @@ public interface ProjetService {
 	Projet updateProjet (Projet p);
     Projet  retrieveProjet (Integer idprojet);
 	void deleteprojet( Integer idprojet);
-	//public List<Projet> getProjetByMatiere(Matiere matiere);
+
 	public void assignProjetToEquipe (Integer idEquipe, Integer idprojet);
 	public Integer incrementNbrLike(Projet p);
+
+	public List<Projet> getProjetsOfEquipe(int idEquipe);
 
 }

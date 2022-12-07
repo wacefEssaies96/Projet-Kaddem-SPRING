@@ -49,11 +49,6 @@ public class EtudiantController {
 		return etudServ.modifierEtudiant(etudiant);
 	}
 	
-	@GetMapping("/get-etudiants-departement/{idDepartement}")
-	public List<Etudiant> getEtudiantsByDepartement(@PathVariable("idDepartement") int idDepartement){
-		return this.etudServ.getEtudiantsByDepartement(idDepartement);
-	}
-	
 	@GetMapping("/assign-etudiant-departement/{etudiantId}/{departementId}")
 	public void assignEtudiantToDepartement(@PathVariable("etudiantId") int eId,
 			@PathVariable("departementId") int dId) {
@@ -74,6 +69,16 @@ public class EtudiantController {
 	@PutMapping("/incrementLikes")
 	public Integer invcrementLikes(@RequestBody Etudiant e) {
 		return this.etudServ.incrementNbrLike(e);
+	}
+	
+	@GetMapping("/etudiants-of-departement/{id}")
+	public List<Etudiant> getEtudiantsByDepartement(@PathVariable("id") int idDepartement){
+		return this.etudServ.getEtudiantsByDepartement(idDepartement);
+	}
+	
+	@GetMapping("/etudiants-of-equipe/{id}")
+	public List<Etudiant> getEtudiantsByEquipe(@PathVariable("id") int idEquipe){
+		return this.etudServ.getEtudiantsByEquipe(idEquipe);
 	}
 	
 }

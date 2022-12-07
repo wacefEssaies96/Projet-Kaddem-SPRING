@@ -1,10 +1,12 @@
 package tn.esprit.service.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.persistance.entities.Equipe;
 import tn.esprit.persistance.entities.Projet;
 import tn.esprit.persistance.repositories.EquipeRepository;
 import tn.esprit.persistance.repositories.ProjetRepository;
@@ -67,5 +69,12 @@ public class ProjetServiceImpl implements ProjetService {
 		p.setNbrLike(inc);
 		projetRepo.save(p);
 		return inc;
+	}
+
+	@Override
+	public List<Projet> getProjetsOfEquipe(int idEquipe) {
+		Equipe eq = equiRepo.getById(idEquipe);
+		ArrayList<Projet> l = new ArrayList<Projet>(eq.getProjets());
+		return l;
 	}
 }

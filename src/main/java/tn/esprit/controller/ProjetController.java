@@ -71,5 +71,9 @@ public class ProjetController {
 		return this.proServ.incrementNbrLike(p);
 	}
 
+	@GetMapping("/projets-of-equipe/{id}")
+	public List<Projet> getProjetsByEquipe(@PathVariable("id") int idEquipe){
+		return this.proServ.getProjetsOfEquipe(idEquipe);
+	}
 }
 

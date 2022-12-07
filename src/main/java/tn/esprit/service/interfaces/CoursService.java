@@ -10,4 +10,6 @@ public interface CoursService {
 	public Cours addCours(Cours c);
 	public Cours retrieveCours(Integer idCours);
 	public void removeCours(Integer idCours);
+	
+	public List<Cours> getCoursOfUniversite(int idUniv);
 }

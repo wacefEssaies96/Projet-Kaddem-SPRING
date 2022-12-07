@@ -63,4 +63,9 @@ public class EquipeController {
 	public List<Equipe> retrieveEquipesOfStudent(@PathVariable("id")int idEtudiant)  {
 		return this.es.retrieveEquipesOfStudent(idEtudiant);
 	}
+
+	@GetMapping("/equipes-of-projet/{id}")
+	public List<Equipe> retrieveEquipesOfProject(@PathVariable("id")int idProjet)  {
+		return this.es.getEquipesOfProjet(idProjet);
+	}
 }

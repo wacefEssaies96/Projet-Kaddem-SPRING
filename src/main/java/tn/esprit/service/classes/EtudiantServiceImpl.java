@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.persistance.entities.Departement;
+import tn.esprit.persistance.entities.Equipe;
 import tn.esprit.persistance.entities.Etudiant;
 import tn.esprit.persistance.entities.User;
 import tn.esprit.persistance.repositories.DepartementRepository;
+import tn.esprit.persistance.repositories.EquipeRepository;
 import tn.esprit.persistance.repositories.EtudiantRepository;
 import tn.esprit.persistance.repositories.UserRepository;
 import tn.esprit.service.interfaces.EtudiantService;
@@ -28,6 +30,8 @@ public class EtudiantServiceImpl implements EtudiantService {
 	
 	@Autowired
 	DepartementRepository departRep;
+	@Autowired
+	EquipeRepository eqRep;
 	
 	@Autowired
 	private UserRepository userRep;
@@ -154,6 +158,21 @@ public class EtudiantServiceImpl implements EtudiantService {
 		e.setNbrLike(inc);
 		etudRep.save(e);
 		return inc;
+	}
+
+	@Override
+	public List<Etudiant> getEtudiantsByEquipe(Integer idEquipe) {
+		List<Etudiant> list = null;
+		try {
+			Equipe eq = this.eqRep.findById(idEquipe).get();
+			list = new ArrayList<>(eq.getEtudiants());
+			for(Etudiant e : list) {
+				log.info(e.toString());
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return list;
 	}
 
 }

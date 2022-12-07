@@ -10,9 +10,11 @@ public interface StageService {
 	public Stage addStage(Stage s);
 	public Stage retrieveStage(Integer idStage);
 	public void removeStage(Integer idStage);
+	
 	public List<Object[]> countByType();
 	public Integer incrementNbrLike(Stage s);
-	public Stage affectStageToEtudiant(Stage s, int idEtudiant);
 	public List<Stage> retrieveStagesOfStudent(int idEtudiant);
+	
+	public Stage affectStageToEtudiant(Stage s, int idEtudiant);
 
 }
