@@ -15,6 +15,6 @@ public interface StageService {
 	public Integer incrementNbrLike(Stage s);
 	public List<Stage> retrieveStagesOfStudent(int idEtudiant);
 	
-	public Stage affectStageToEtudiant(Stage s, int idEtudiant);
+	public Stage affectStageToEtudiant(int idStage, int idEtudiant);
 
 }

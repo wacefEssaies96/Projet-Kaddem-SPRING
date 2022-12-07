@@ -96,17 +96,19 @@ public class StageServiceImpl implements StageService {
 	}
 
 	@Override
-	public Stage affectStageToEtudiant(Stage s, int idEtudiant) {
+	public Stage affectStageToEtudiant(int idStage, int idEtudiant) {
+		Stage ss = null;
 		try {
 				Etudiant e = etudRep.getById(idEtudiant);
+				Stage s = sr.getById(idStage);
 				s.setEtudiant(e);
-				sr.save(s);
+				ss = sr.save(s);
 				log.info("L'etudiant "+e.getIdEtudiant()+" est affecté au stage "+s.getIdStage());
 		
 		} catch (Exception e) {
 			log.error(e.getMessage());		
 		}
-		return s;
+		return ss;
 	}
 
 	@Override

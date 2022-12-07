@@ -57,7 +57,7 @@ public class Universite implements Serializable {
 	private Set<Departement> departements;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="universite",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="universite")
 	private Set<Cours> cours;
 
 	@Override

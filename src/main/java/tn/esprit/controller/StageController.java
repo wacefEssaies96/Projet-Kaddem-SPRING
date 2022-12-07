@@ -58,9 +58,9 @@ public class StageController {
 		return this.ss.incrementNbrLike(s);
 	}
 
-	@PostMapping("/affect-stage-etudiant/{id}")
-	public Stage affectStageToEtudiant(@RequestBody Stage s, @PathVariable("id") int idE) {
-		return this.ss.affectStageToEtudiant(s, idE);
+	@GetMapping("/affect-stage-etudiant/{ide}/{ids}")
+	public Stage affectStageToEtudiant(@PathVariable("ide") int idE, @PathVariable("ids") int idS) {
+		return this.ss.affectStageToEtudiant(idS, idE);
 	}
 
 	
