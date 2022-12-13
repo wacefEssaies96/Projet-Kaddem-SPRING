@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.persistance.entities.Cours;
 import tn.esprit.persistance.entities.TypeUniversite;
 import tn.esprit.persistance.entities.Universite;
+import tn.esprit.persistance.repositories.CoursRepository;
 import tn.esprit.persistance.repositories.DepartementRepository;
 import tn.esprit.persistance.repositories.UniversiteRepository;
 import tn.esprit.service.interfaces.UniversiteService;
@@ -20,6 +22,9 @@ public class UniversiteServiceImpl implements UniversiteService {
 		
 		@Autowired 
 		DepartementRepository depRepo;
+		
+		@Autowired 
+		CoursRepository coursRepo;
 		
 		@Override
 		public List<Universite> retrieveAllUniversites() {
@@ -75,7 +80,10 @@ public class UniversiteServiceImpl implements UniversiteService {
 
 		@Override
 		public void assignUniversiteToCoursjpql(Integer idUniversite, Integer idCours) {
-			univRepo.updateAssignUniversityToCours(idUniversite, idCours);
+			Universite u = this.univRepo.findById(idUniversite).get();
+			Cours c = this.coursRepo.findById(idCours).get();
+			c.setUniversite(u);
+			this.coursRepo.save(c);
 		}
 
 		@Override
